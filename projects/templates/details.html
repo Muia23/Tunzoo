@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+    <button class="btn btn-primary" style="position:absolute; margin-top: 20vh;margin-left:10px;height:50px;width:50px;border-radius: 50%;font-size:25px;"> + </button>
+    <button class="btn btn-outline-primary" style="position:absolute; margin-top: 40vh;margin-left:10px;height:50px;width:50px;border-radius: 50%;font-size:25px;"> + </button>
+    <div class="container" style="text-align: center;max-height: 75vh; overflow-y: scroll;">
+        <h2><strong>Name of project</strong></h2>        
+        <h5>What Sets Us ApartWe are a strategic partner to our clients. We will help you to ideate,
+            design and implement your product from conception to iterative development support, 
+            always taking the initiative and working proactively.
+        </h5>
+        <div class="container">
+            <h3 style="display: inline-block;">Technologies:</h3>
+            <h5 style="display: inline-block; padding: 5px 20px; background-color: tomato; border-radius:10px; color: white;">HTML5</h5>
+            <h5 style="display: inline-block; padding: 5px 20px; background-color: orange; border-radius:10px; color: white;">JS</h5>
+            <h5 style="display: inline-block; padding: 5px 20px; background-color: green; border-radius:10px; color: white;">Django</h5>
+            <h5 style="display: inline-block; padding: 5px 20px; background-color: purple; border-radius:10px; color: white;">Python</h5>
+        </div>
+        <div class="container">
+            <p style="display: inline-block;">Screenshots</p>.
+            <p style="display: inline-block;">Kura</p>.
+            <p style="display: inline-block;">Comments</p>
+        </div>
+        <section class="screenshots">
+            <div class="container">
+                <img src="https://extendthemes.com/wp-content/uploads/2018/07/break-the-mold-layout-min.png" style="max-width:100%; padding: 30px 0;">                
+                <img src="https://extendthemes.com/wp-content/uploads/2018/07/layout-to-transmit-a-statement-min.jpg" style="max-width:100%; padding: 30px 0;">                
+            </div>            
+        </section>
+        <section class="kura">
+            <div class="container">
+                <h2>Kura</h2>
+                <table style="width: 100%;">
+                    <tr>
+                        <th></th>
+                        <th>Design Layout</th>
+                        <th>Usability</th>
+                        <th>Content</th>
+                        <th>Avg. Kura</th>
+                    </tr>                    
+                    <tr>
+                        <td>Username 2</td>
+                        <td>Kura1</td>
+                        <td>Kura2</td>
+                        <td>Kura3</td>
+                        <td>Avg Kura</td>
+                    </tr>
+                    <tr>
+                        <td>Username 3</td>
+                        <td>Kura1</td>
+                        <td>Kura2</td>
+                        <td>Kura3</td>
+                        <td>Avg Kura</td>
+                    </tr>
+                </table>                                       
+            </div>
+        </section>
+        <section class="comment">
+            <div class="container">
+                <h2>Comments</h2>
+                <table style="width: 75%;">
+                    <tr>
+                        <td>User1 Comment </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </div>
+
+{% endblock %}
