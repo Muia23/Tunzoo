@@ -1,4 +1,7 @@
+from django.contrib.auth.models import User
 from django.db import models
+from tinymce.models import HTMLField
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class Techs(models.Model):
@@ -27,3 +30,19 @@ class Post(models.Model):
         post = cls.objects.filter(id = id).first()
         return post
 
+
+class Kura(models.Model):
+    design = models.IntegerField(
+        default = 1,
+        validators=[MaxValueValidator(10), MinValueValidator(1)]
+    )
+    usability = models.IntegerField(
+        default = 1,
+        validators=[MaxValueValidator(10), MinValueValidator(1)]
+    )    
+    content = models.IntegerField(
+        default = 1,
+        validators=[MaxValueValidator(10), MinValueValidator(1)]
+    )
+    
+    
