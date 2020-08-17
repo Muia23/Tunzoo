@@ -11,6 +11,7 @@ class Techs(models.Model):
         return self.name
 
 class Post(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     name = models.CharField(max_length = 60)
     url = models.CharField(max_length=120)    
     description = models.TextField()    
@@ -32,17 +33,10 @@ class Post(models.Model):
 
 
 class Kura(models.Model):
-    design = models.IntegerField(
-        default = 1,
-        validators=[MaxValueValidator(10), MinValueValidator(1)]
-    )
-    usability = models.IntegerField(
-        default = 1,
-        validators=[MaxValueValidator(10), MinValueValidator(1)]
-    )    
-    content = models.IntegerField(
-        default = 1,
-        validators=[MaxValueValidator(10), MinValueValidator(1)]
-    )
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    post = models.ForeignKey(Post,on_delete=models.CASCADE)
+    design = models.IntegerField(default = 1,validators=[MaxValueValidator(10), MinValueValidator(1)])
+    usability = models.IntegerField(default = 1,validators=[MaxValueValidator(10), MinValueValidator(1)])    
+    content = models.IntegerField(default = 1,validators=[MaxValueValidator(10), MinValueValidator(1)])
     
     
