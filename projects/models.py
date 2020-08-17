@@ -12,7 +12,7 @@ class Post(models.Model):
     url = models.CharField(max_length=120)    
     description = models.TextField()    
     screenshot = models.ImageField(upload_to = 'screenshot')
-    techs = models.ManyToManyField(Techs, blank=True)
+    techs = models.ManyToManyField(Techs, related_name='techs')
 
     def __str__(self):
         return self.name

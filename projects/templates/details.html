@@ -1,16 +1,23 @@
 {% extends 'base.html' %}
-{% block content %}
-    <button class="btn btn-primary toggler" style="margin-top: 20vh;" data-toggle="modal" data-target="#kura"> + </button>
-    <button class="btn btn-outline-primary toggler" style="margin-top: 40vh;"> + </button>
+{% block content %}  
     <div class="container" style="text-align: center;max-height: 75vh; overflow-y: scroll;">
         <h2><strong>{{post.name}}</strong></h2>        
         <h5>{{post.description}}</h5>
         <div class="container">
             <h3 style="display: inline-block;">Technologies:</h3>
-            <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid tomato; color: tomato; border-radius:10px;">HTML5</h5>
-            <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid orange; color: orange; border-radius:10px;">JS</h5>
-            <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid green;  color: green; border-radius:10px;">Django</h5>
-            <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid purple; color: purple; border-radius:10px;">Python</h5>
+            {% for tech in post.techs.all %}
+                {% if tech.name == "HTML5" %}
+                <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid tomato; color: tomato; border-radius:10px;">{{tech}}</h5>                                
+                {% elif tech.name == "JS" %}
+                <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid orange; color: orange; border-radius:10px;">{{tech}}</h5>                
+                {% elif tech.name == "Django" %}
+                <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid green;  color: green; border-radius:10px;">{{tech}}</h5>                
+                {% elif tech.name == "Python" %}
+                <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid purple; color: purple; border-radius:10px;">{{tech}}</h5>
+                {% else %}
+                <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid grey; color: grey; border-radius:10px;">{{tech}}</h5>                
+                {% endif %}
+            {% endfor %}                        
         </div>
         <div class="container">
             <p style="display: inline-block;" onclick="myFunction('screenshots')">Screenshots</p>.
@@ -22,9 +29,9 @@
                 <img src="{{post.screenshot.url}}" style="max-width:100%; padding: 30px 0;">                            
             </div>            
         </section>
-        <section id="kura">
+        <section id="kura">            
             <div class="container">
-                <h2>Kura</h2>
+                <h2>Kura <span><a href="{% url 'kura' {{post.id}} %}">Add Kura</a></span></h2>
                 <table style="width: 100%;">
                     <tr>
                         <th></th>
@@ -60,26 +67,7 @@
                 </table>
             </div>
         </section>
-    </div>
-    <!-- Kura Modal-->
-    <div class="modal fade" id="kura" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-        <div class="modal-dialog modal-sm modal-dialog-centered"  role="document">
-            <div class="modal-content"> 
-                <div class="modal-body" style="height: 500px;">
-                    <p>Noma</p>
-                    <form action="#" method="post" enctype="multipart/form-data">                        
-                        <p>Design</p>                                    
-                        <input type="range">
-                        <p>Usability</p>                                    
-                        <input type="range">
-                        <p>Content</p>                                    
-                        <input type="range">
-                        <input type="submit" class="btn btn-success btn-lg" value="Submit">
-                    </form> 
-                </div>    
-            </div>
-        </div>
-    </div>
+    </div>    
     
     <style>
         .toggler {
