@@ -5,5 +5,5 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
-    url(r'/details', views.details, name='details'),
+    url(r'details', views.details, name='details'),
 ]

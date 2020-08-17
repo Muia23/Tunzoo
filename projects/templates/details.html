@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-    <button class="btn btn-primary" style="position:absolute; margin-top: 20vh;margin-left:10px;height:50px;width:50px;border-radius: 50%;font-size:25px;"> + </button>
-    <button class="btn btn-outline-primary" style="position:absolute; margin-top: 40vh;margin-left:10px;height:50px;width:50px;border-radius: 50%;font-size:25px;"> + </button>
+    <button class="btn btn-primary toggler" style="margin-top: 20vh;" data-toggle="modal" data-target="#kura"> + </button>
+    <button class="btn btn-outline-primary toggler" style="margin-top: 40vh;"> + </button>
     <div class="container" style="text-align: center;max-height: 75vh; overflow-y: scroll;">
         <h2><strong>Name of project</strong></h2>        
         <h5>What Sets Us ApartWe are a strategic partner to our clients. We will help you to ideate,
@@ -65,5 +65,34 @@
             </div>
         </section>
     </div>
-
+    <!-- Kura Modal-->
+    <div class="modal fade" id="kura" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered"  role="document">
+            <div class="modal-content"> 
+                <div class="modal-body" style="height: 500px;">
+                    <p>Noma</p>
+                    <form action="#" method="post" enctype="multipart/form-data">                        
+                        <p>Design</p>                                    
+                        <input type="range">
+                        <p>Usability</p>                                    
+                        <input type="range">
+                        <p>Content</p>                                    
+                        <input type="range">
+                        <input type="submit" class="btn btn-success btn-lg" value="Submit">
+                    </form> 
+                </div>    
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .toggler {
+            position:absolute; 
+            right:10px;
+            height:50px;
+            width:50px;
+            border-radius: 50%;
+            font-size:25px;
+        }
+    </style>    
 {% endblock %}
