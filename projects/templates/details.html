@@ -31,7 +31,7 @@
         </section>
         <section id="kura">            
             <div class="container">
-                <h2>Kura <span><a href="{% url 'kura' post.id %}">Add Kura</a></span></h2>
+                <h2>Kura <span><a href="{% url 'kura' post.id %}">Add Kura</a></span></h2>                                           
                 <table style="width: 100%;">
                     <tr>
                         <th></th>
@@ -39,21 +39,16 @@
                         <th>Usability</th>
                         <th>Content</th>
                         <th>Avg. Kura</th>
-                    </tr>                    
-                    <tr>
-                        <td>Username 2</td>
-                        <td>Kura1</td>
-                        <td>Kura2</td>
-                        <td>Kura3</td>
-                        <td>Avg Kura</td>
                     </tr>
-                    <tr>
-                        <td>Username 3</td>
-                        <td>Kura1</td>
-                        <td>Kura2</td>
-                        <td>Kura3</td>
-                        <td>Avg Kura</td>
-                    </tr>
+                    {% for kura in kuras %}                    
+                        <tr>
+                            <td>{{kura.user}}</td>
+                            <td>{{kura.design}}</td>
+                            <td>{{kura.usability}}</td>
+                            <td>{{kura.content}}</td>                        
+                            <td>Avg Kura</td>
+                        </tr>
+                    {% endfor %}                    
                 </table>                                       
             </div>
         </section>

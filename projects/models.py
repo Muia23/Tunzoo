@@ -39,4 +39,10 @@ class Kura(models.Model):
     usability = models.IntegerField(default = 1,validators=[MaxValueValidator(10), MinValueValidator(1)])    
     content = models.IntegerField(default = 1,validators=[MaxValueValidator(10), MinValueValidator(1)])
     
-    
+    def __str__(self):
+        return self.post
+
+    @classmethod
+    def get_post_kura(cls, id):
+        kuras = cls.objects.filter(post = id)
+        return kuras
