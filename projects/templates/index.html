@@ -7,7 +7,7 @@
                 {% for post in posts %}
                 <li class= "cat">
                     <div class="card" style="border-radius: 10px;">
-                        <a href="{% url 'details' %}" ><img src="{{post.screenshot.url}}" style="width:300px; height:200px;"></a>
+                        <a href="{% url 'details' post.id %}" ><img src="{{post.screenshot.url}}" style="width:300px; height:200px;"></a>
                         <div class="card-body">
                             <h4 style="text-align: left;">{{post.name}}</h4>
                             <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
@@ -19,58 +19,7 @@
                     </div>
                 </li>
                 {% endfor %}
-                <li class= "cat">
-                    <div class="card">
-                        <a href="{% url 'details' %}" ><img src="https://extendthemes.com/wp-content/uploads/2018/07/focal-points-Blue-Point-min-1024x828.jpg" style="width:300px; height:200px;"></a>
-                        <div class="card-body">
-                            <h4 style="text-align: left;">Name of project 2</h4>
-                            <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
-                            <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
-                            <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
-                            <hr>
-                            <h5>By <strong>Creator</strong></h5>
-                        </div>
-                    </div>
-                </li>
-                <li class= "cat">
-                    <div class="card">
-                        <a href="{% url 'details' %}" ><img src="https://extendthemes.com/wp-content/uploads/2018/07/layout-online-store.jpg" style="width:300px; height:200px;"></a>
-                        <div class="card-body">
-                            <h4 style="text-align: left;">Name of project 3</h4>
-                            <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
-                            <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
-                            <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
-                            <hr>
-                            <h5>By <strong>Creator</strong></h5>
-                        </div>
-                    </div>
-                </li>
-                <li class= "cat">
-                    <div class="card">
-                        <a href="{% url 'details' %}" ><img src="https://extendthemes.com/wp-content/uploads/2018/07/layout-to-transmit-a-statement-min.jpg" style="width:300px; height:200px;"></a>
-                        <div class="card-body">
-                            <h4 style="text-align: left;">Name of project 4</h4>
-                            <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
-                            <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
-                            <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
-                            <hr>
-                            <h5>By <strong>Creator</strong></h5>
-                        </div>
-                    </div>
-                </li>
-                <li class= "cat">
-                    <div class="card">
-                        <a href="{% url 'details' %}" ><img src="https://extendthemes.com/wp-content/uploads/2018/07/layout-to-transmit-a-statement-min.jpg" style="width:300px; height:200px;"></a>
-                        <div class="card-body">
-                            <h4 style="text-align: left;">Name of project 5</h4>
-                            <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
-                            <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
-                            <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
-                            <hr>
-                            <h5>By <strong>Creator</strong></h5>
-                        </div>
-                    </div>
-                </li>
+                
                 
             </ul>
         </div>

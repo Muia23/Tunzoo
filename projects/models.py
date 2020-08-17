@@ -14,3 +14,8 @@ class Post(models.Model):
     def get_posts(cls):
         posts = cls.objects.order_by('name')
         return posts
+
+    @classmethod
+    def get_post_details(cls, id):
+        post = cls.objects.filter(id = id).first()
+        return post

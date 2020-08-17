@@ -3,17 +3,14 @@
     <button class="btn btn-primary toggler" style="margin-top: 20vh;" data-toggle="modal" data-target="#kura"> + </button>
     <button class="btn btn-outline-primary toggler" style="margin-top: 40vh;"> + </button>
     <div class="container" style="text-align: center;max-height: 75vh; overflow-y: scroll;">
-        <h2><strong>Name of project</strong></h2>        
-        <h5>What Sets Us ApartWe are a strategic partner to our clients. We will help you to ideate,
-            design and implement your product from conception to iterative development support, 
-            always taking the initiative and working proactively.
-        </h5>
+        <h2><strong>{{post.name}}</strong></h2>        
+        <h5>{{post.description}}</h5>
         <div class="container">
             <h3 style="display: inline-block;">Technologies:</h3>
-            <h5 style="display: inline-block; padding: 5px 20px; background-color: tomato; border-radius:10px; color: white;">HTML5</h5>
-            <h5 style="display: inline-block; padding: 5px 20px; background-color: orange; border-radius:10px; color: white;">JS</h5>
-            <h5 style="display: inline-block; padding: 5px 20px; background-color: green; border-radius:10px; color: white;">Django</h5>
-            <h5 style="display: inline-block; padding: 5px 20px; background-color: purple; border-radius:10px; color: white;">Python</h5>
+            <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid tomato; color: tomato; border-radius:10px;">HTML5</h5>
+            <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid orange; color: orange; border-radius:10px;">JS</h5>
+            <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid green;  color: green; border-radius:10px;">Django</h5>
+            <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid purple; color: purple; border-radius:10px;">Python</h5>
         </div>
         <div class="container">
             <p style="display: inline-block;" onclick="myFunction('screenshots')">Screenshots</p>.
@@ -22,8 +19,7 @@
         </div>
         <section id="screenshots">
             <div class="container">
-                <img src="https://extendthemes.com/wp-content/uploads/2018/07/break-the-mold-layout-min.png" style="max-width:100%; padding: 30px 0;">                
-                <img src="https://extendthemes.com/wp-content/uploads/2018/07/layout-to-transmit-a-statement-min.jpg" style="max-width:100%; padding: 30px 0;">                
+                <img src="{{post.screenshot.url}}" style="max-width:100%; padding: 30px 0;">                            
             </div>            
         </section>
         <section id="kura">
