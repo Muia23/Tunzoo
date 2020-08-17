@@ -13,13 +13,13 @@
                 </div>
                 <div class="col" style="text-align: center;">                
                     <div class="container header" >
-                        <h1 class="heading">Tunzoo</h1>
+                        <a href="/"><h1 class="heading">Tunzoo</h1></a>
                     </div>                
                 </div>
                 <div class="col" style="text-align: right; ">
-                    <div class="container" style="background:#5433FF; height: 6vh; width: 200px; margin-right: 0;">
+                    <div class="container" style="background:#5433FF; height:fit-content; width: fit-content; margin-right: 0;">
                         {% if user.is_authenticated %}
-                            <h4 class="auth" style="padding-right: 10px;"><a href="/accounts/login">Log In</a></h4>
+                            <h4 class="auth" style="padding-right: 10px;"><a href="/accounts/login">{{current_user}}</a></h4>
                             <h4 style="display: inline-block; padding-right: 10px;font-size: 25px;">|</h4>                    
                             <h4 class="auth" style="padding-right:25px;"><a href="/logout"> Log Out</a></h4>
                         {% else %}

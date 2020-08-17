@@ -4,8 +4,8 @@ from django.http import HttpResponse
 
 # Home page.
 def home(request):
-    
-    return render(request, 'index.html')
+    current_user = request.user
+    return render(request, 'index.html', {'current_user': current_user })
 
 # Detials page.
 @login_required(login_url='/accounts/login/')
