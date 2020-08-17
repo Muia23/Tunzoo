@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^accounts/profile/', views.home, name='logged_in'),
     url(r'details/(\d)', views.details, name='details'),
     url(r'^kura/(\d)', views.kura, name='kura'),
+    url(r'^newpost/', views.new_post, name='newpost'),
 ]
 
 if settings.DEBUG:
