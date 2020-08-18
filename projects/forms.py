@@ -1,5 +1,5 @@
 from django import forms
-from .models import Kura,Post
+from .models import Kura,Post,Comment
 
 class PostForm(forms.ModelForm):
     class Meta:
@@ -14,3 +14,7 @@ class PigaKura(forms.ModelForm):
         model = Kura
         fields = [ 'design','usability','content']
             
+class CommentForm (forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = [ 'comment' ]

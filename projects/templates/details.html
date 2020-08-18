@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
-{% block content %}  
-    <div class="container" style="text-align: center;max-height: 75vh; overflow-y: scroll;">
-        <h2><strong>{{post.name}}</strong></h2>        
-        <h5>{{post.description}}</h5>
-        <div class="container">
+{% load bootstrap4 %}  
+{% block content %}
+    <div class="conatiner-fluid" style="max-height: 75vh; overflow-y: scroll;">
+        <div class="container" style="text-align: center;">
+            <h2><strong>{{post.name}}</strong></h2>        
+            <h5>{{post.description}}</h5>
+            <div class="container">
             <h3 style="display: inline-block;">Technologies:</h3>
             {% for tech in post.techs.all %}
                 {% if tech.name == "HTML5" %}
@@ -18,19 +20,20 @@
                 <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid grey; color: grey; border-radius:10px;">{{tech}}</h5>                
                 {% endif %}
             {% endfor %}                        
-        </div>
-        <div class="container">
+            </div>
+            <div class="container">
             <p style="display: inline-block;" onclick="myFunction('screenshots')">Screenshots</p>.
             <p style="display: inline-block;" onclick="myFunction('kura')">Kura</p>.
             <p style="display: inline-block;" onclick="myFunction('comment')">Comments</p>
-        </div>
-        <section id="screenshots">
-            <div class="container">
-                <img src="{{post.screenshot.url}}" style="max-width:100%; padding: 30px 0;">                            
+            </div>
+            <section id="screenshots">
+            <div class="container">                
+                <img src="{{post.screenshot.url}}" style="max-width:100%; padding: 30px 0;">
+                <a href="{{post.url}}"><button style="position: absolute; margin-right: 2px;">Live</button></a>
             </div>            
-        </section>
-        <section id="kura">            
-            <div class="container">
+            </section>
+            <section id="kura">            
+                <div class="container">
                 <h2>Kura <span><a href="{% url 'kura' post.id %}">Add Kura</a></span></h2>                                           
                 <table style="width: 100%;">
                     <tr>
@@ -50,20 +53,47 @@
                         </tr>
                     {% endfor %}                    
                 </table>                                       
-            </div>
-        </section>
-        <section id="comment">
-            <div class="container">
-                <h2>Comments</h2>
-                <table style="width: 75%;">
-                    <tr>
-                        <td>User1 Comment </td>
-                    </tr>
-                </table>
-            </div>
-        </section>
-    </div>    
-    
+                </div>
+            </section>
+
+            <section id="comment">
+                <!-- Button trigger modal -->
+                <div class="container">
+                    <h2 style="display: inline-block; padding-right:70px;">Comments</h2>
+                    <button type="button" style="display: inline-block; " class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Add a comment</button>
+                    <table style="width: 75%;">
+                        {% for comment in comments %}
+                            <tr>
+                                <td>{{comment.user}}</td>
+                                <td>{{comment.comment}}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                    <!-- Comments Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Write comments</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{% url 'details' post.id %}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                
+                                {% bootstrap_form commentform %}
+                                <input type="submit" class="btn btn-success btn-lg" value="Post">
+                            </form>
+                        </div>                        
+                    </div>
+                </div>
+                </div>
+            </section>
+        </div>    
+    </div>
     <style>
         .toggler {
             position:absolute; 

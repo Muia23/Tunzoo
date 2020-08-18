@@ -11,8 +11,24 @@ class Techs(models.Model):
     def __str__(self):
         return self.name
 
+class Profile(models.Model):
+    profile_pic = models.ImageField(upload_to = 'profile')
+    username = models.CharField(max_length = 60)
+    bio = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)    
+
+    def __str__(self):
+        return self.username
+
+    @classmethod
+    def get_profile(cls, id):
+        profile = cls.objects.filter(id = id).first()
+        return profile
+        
+
 class Post(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(Profile,on_delete=models.CASCADE)
     name = models.CharField(max_length = 60)
     url = models.CharField(max_length=120)    
     description = models.TextField()    
@@ -33,12 +49,14 @@ class Post(models.Model):
         return post
 
 
+
 class Kura(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     post = models.ForeignKey(Post,on_delete=models.CASCADE)
     design = models.IntegerField(default = 1,validators=[MaxValueValidator(10), MinValueValidator(1)])
     usability = models.IntegerField(default = 1,validators=[MaxValueValidator(10), MinValueValidator(1)])    
     content = models.IntegerField(default = 1,validators=[MaxValueValidator(10), MinValueValidator(1)])        
+    
     def __str__(self):
         return self.post
 
@@ -52,3 +70,16 @@ class Kura(models.Model):
         avrg = cls.objects.filter(post = id)
         avrg.aggregate(avr = Avg(F('design') + F('usability')+ F('content')))        
         return avrg
+
+class Comment(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    post = models.ForeignKey(Post,on_delete=models.CASCADE)
+    comment = HTMLField()
+
+    def __str__(self):
+        return self.comment
+
+    @classmethod
+    def get_comments(cls, id):
+        comments = cls.objects.filter(post = id)
+        return comments

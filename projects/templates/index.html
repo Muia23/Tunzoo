@@ -7,14 +7,14 @@
                 {% for post in posts %}
                 <li class= "cat">
                     <div class="card" style="border-radius: 10px;">
-                        <a href="{% url 'details' post.id %}" ><img src="{{post.screenshot.url}}" style="width:300px; height:200px;"></a>
+                        <a href="{% url 'details' post.id %}" ><img src="{{post.screenshot.url}}" style="width:460px; height:300px;"></a>
                         <div class="card-body">
-                            <h4 style="text-align: left;">{{post.name}}</h4>
+                            <p style="text-align: left;">{{post.name}}</p>
                             <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
                             <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
                             <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
                             <hr>
-                            <h5>By <strong>Creator</strong></h5>
+                            <p>By <strong>Creator</strong></p>
                         </div>
                     </div>
                 </li>
