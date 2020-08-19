@@ -1,0 +1,1 @@
+web: gunicorn tunzoo.wsgi --log-file -
