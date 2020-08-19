@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}  
 {% block content %}
+    {%include 'navbar.html' %}
     <div class="conatiner-fluid" style="max-height: 75vh; overflow-y: scroll;">
         <div class="container" style="text-align: center;">
             <h2><strong>{{post.name}}</strong></h2>        
             <h5>{{post.description}}</h5>
-            <div class="container">
-            <h3 style="display: inline-block;">Technologies:</h3>
+            <div class="container">            
             {% for tech in post.techs.all %}
                 {% if tech.name == "HTML5" %}
-                <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid tomato; color: tomato; border-radius:10px;">{{tech}}</h5>                                
+                <p style="display: inline-block; padding: 5px 20px;border: 0.01em solid tomato; color: tomato; border-radius:10px;">{{tech}}</p>                                
                 {% elif tech.name == "JS" %}
-                <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid orange; color: orange; border-radius:10px;">{{tech}}</h5>                
+                <p style="display: inline-block; padding: 5px 20px;border: 0.01em solid orange; color: orange; border-radius:10px;">{{tech}}</p>                
                 {% elif tech.name == "Django" %}
-                <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid green;  color: green; border-radius:10px;">{{tech}}</h5>                
+                <p style="display: inline-block; padding: 5px 20px;border: 0.01em solid green;  color: green; border-radius:10px;">{{tech}}</p>                
                 {% elif tech.name == "Python" %}
-                <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid purple; color: purple; border-radius:10px;">{{tech}}</h5>
+                <p style="display: inline-block; padding: 5px 20px;border: 0.01em solid purple; color: purple; border-radius:10px;">{{tech}}</p>
                 {% else %}
-                <h5 style="display: inline-block; padding: 5px 20px;border: 0.01em solid grey; color: grey; border-radius:10px;">{{tech}}</h5>                
+                <p style="display: inline-block; padding: 5px 20px;border: 0.01em solid grey; color: grey; border-radius:10px;">{{tech}}</p>                
                 {% endif %}
             {% endfor %}                        
             </div>

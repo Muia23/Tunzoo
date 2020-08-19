@@ -2,6 +2,7 @@
 {{blocksuper}}
 {% load bootstrap4 %}
 {% block content %}    
+    {%include 'navbar.html' %}
     <div class="row" style="margin-top: 5vh; padding:0 50px;">
         <div class="col-md-8">
             <img src="{{ post.screenshot.url}}" style="width: 100%;">

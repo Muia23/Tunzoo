@@ -24,11 +24,11 @@ class Profile(models.Model):
     def get_profile(cls, id):
         profile = cls.objects.filter(id = id).first()
         return profile
-        
+
 
 class Post(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    user = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile,on_delete=models.CASCADE,blank=True)
     name = models.CharField(max_length = 60)
     url = models.CharField(max_length=120)    
     description = models.TextField()    
@@ -48,7 +48,15 @@ class Post(models.Model):
         post = cls.objects.filter(id = id).first()
         return post
 
+    @classmethod
+    def get_profile_posts(cls,id):
+        posts = cls.objects.filter(user = id).all()
+        return posts
 
+    @classmethod
+    def search_by_name(cls,search_term):
+        posts = cls.objects.filter(name__icontains=search_term)
+        return posts
 
 class Kura(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)

@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^kura/(\d)', views.kura, name='kura'),
     url(r'^newpost/', views.new_post, name='newpost'),
     url(r'^profile/(\d)', views.profile, name='profile'),
+    url(r'^search/', views.search_results, name='search_results'),
 ]
 
 if settings.DEBUG:

@@ -1,35 +1,52 @@
 {% extends 'base.html' %}    
 {% block content %}
-    <hr>
-    <h2>Category 1</h2>
-        <div class="container-fluid">
-            <ul style="text-align: center;">
-                {% for post in posts %}
-                <li class= "cat">
-                    <div class="card" style="border-radius: 10px;">
-                        <a href="{% url 'details' post.id %}" ><img src="{{post.screenshot.url}}" style="width:460px; height:300px;"></a>
-                        <div class="card-body">
-                            <p style="text-align: left;">{{post.name}}</p>
-                            <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
-                            <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
-                            <p style="display: inline-block; background-color: steelblue;color: white; padding: 3px 5px; border-radius: 7px;">Tech</p>
-                            <hr>
-                            <p>By <strong>Creator</strong></p>
+    {%include 'navbar.html' %}    
+    <div class="row" style="height: 67vh; max-height: 63vh; overflow-y: scroll;">
+        <div class="col"></div>
+        <div class="col-md-11">
+            <h6>Category 1</h6>
+            <div class="container-fluid">
+                <ul style="text-align: center;">
+                    {% for post in posts %}
+                    <li class= "cat">
+                        <div class="card">
+                            <a href="{% url 'details' post.id %}"><div class="image" style="background: url({{post.screenshot.url}}); background-size:cover;  width:350px; height:225px;" >                                                                                                                                                                                                                                
+                            </div></a>
+                            <div class="body" style="height: 130px;">
+                                <p style="position: absolute; margin-top:5px; margin-left:20px; text-align: left; ">{{post.name}}</p>
+                                <p style="margin-top: 50px;">By <strong>{{post.profile}}</strong></p>                                
+                                <div class="conatiner" style="position: absolute; right:10px;">
+                                {% for tech in post.techs.all %}                                
+                                    {% if tech.name == "HTML5" %}
+                                    <p class="word" style="border: 0.01em solid tomato; color: tomato;">{{tech}}</p>                                
+                                    {% elif tech.name == "JS" %}
+                                    <p class="word" style="border: 0.01em solid orange; color: orange;">{{tech}}</p>                
+                                    {% elif tech.name == "Django" %}
+                                    <p class="word" style="border: 0.01em solid green; color: green;">{{tech}}</p>                
+                                    {% elif tech.name == "Python" %}
+                                    <p class="word" style="border: 0.01em solid purple; color: purple;">{{tech}}</p>
+                                    {% else %}
+                                    <p class="word" style="border: 0.01em solid grey; color: grey;">{{tech}}</p>                
+                                    {% endif %}
+                                {% endfor %}                                                                                                    
+                                </div>
+                                <style>
+                                    .word {
+                                        display: inline-block;
+                                        padding: 2px 3px;                                        
+                                        font-size: 10px;
+                                    }
+                                </style>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                {% endfor %}
-                
-                
-            </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>        
         </div>
-    <hr>
-    <h2>Category 2</h2>
-    <hr>
-    <h2>Category 3</h2>
-    <hr>
-    <h2> Category 4</h2>
-
+        <div class="col"></div>
+    </div>    
     <style>
         body {
             width: 100%;
@@ -37,7 +54,8 @@
         .cat {
             display: inline-block;
             padding-right: 14px;
-            padding-top: 18px;
+            padding-top: 18px;        
+            
         }
     </style>
 {% endblock %}
